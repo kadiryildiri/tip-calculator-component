@@ -1,0 +1,158 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "strong-cyan": "hsl(172, 67%, 45%)",
+                            "very-dark-cyan": "hsl(183, 100%, 15%)",
+                            "dark-grayish-cyan": "hsl(186, 14%, 43%)",
+                            "grayish-cyan": "hsl(184, 14%, 56%)",
+                            "light-grayish-cyan": "hsl(185, 41%, 84%)",
+                            "very-light-grayish-cyan": "hsl(189, 41%, 97%)",
+                            white: "hsl(0, 0%, 100%)",
+                        },
+                        backgroundPosition: {
+                            "left-center": "left center top 1rem",
+                        },
+                    },
+                },
+            }
+        </script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            body {
+                font-family: "Space Mono", monospace;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body class="bg-light-grayish-cyan md:flex md:flex-col md:justify-center md:items-center md:h-screen">
+        <main>
+            <header class="w-full flex items-center justify-center py-8 md:pt-0">
+                <h1 class="tracking-[.3em] font-bold text-xl text-very-dark-cyan">SPLI<br />TTER</h1>
+            </header>
+            <section class="bg-white w-full p-6 rounded-t-2xl md:rounded-2xl">
+                <form class="flex flex-col gap-6 md:flex md:flex-row md:m-0" id="formBill">
+                    <div class="md:w-1/2">
+                        <div class="flex flex-col relative">
+                            <label class="text-sm text-grayish-cyan font-bold" for="bill">Bill</label>
+                            <input
+                                class="bg-very-light-grayish-cyan text-right text-very-dark-cyan font-bold text-xl outline-none p-2 rounded-md focus:outline-strong-cyan"
+                                type="number"
+                                name="bill2"
+                                id="bill"
+                                placeholder="0"
+                            />
+                            <img class="absolute top-9 left-3" src="images/icon-dollar.svg" alt="" />
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <label class="text-sm text-grayish-cyan font-bold" for="tipPercent">Select Tip %</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button
+                                    class="bg-very-dark-cyan text-white text-lg font-bold py-2 rounded-md focus:bg-strong-cyan focus:text-very-dark-cyan"
+                                    type="button"
+                                    id="fivePercent"
+                                >
+                                    5%
+                                </button>
+                                <button
+                                    class="bg-very-dark-cyan text-white text-lg font-bold py-2 rounded-md focus:bg-strong-cyan focus:text-very-dark-cyan"
+                                    type="button"
+                                    id="tenPercent"
+                                >
+                                    10%
+                                </button>
+                                <button
+                                    class="bg-very-dark-cyan text-white text-lg font-bold py-2 rounded-md focus:bg-strong-cyan focus:text-very-dark-cyan"
+                                    type="button"
+                                    id="fifteenPercent"
+                                >
+                                    15%
+                                </button>
+                                <button
+                                    class="bg-very-dark-cyan text-white text-lg font-bold py-2 rounded-md focus:bg-strong-cyan focus:text-very-dark-cyan"
+                                    type="button"
+                                    id="twentyfivePercent"
+                                >
+                                    25%
+                                </button>
+                                <button
+                                    class="bg-very-dark-cyan text-white text-lg font-bold py-2 rounded-md focus:bg-strong-cyan focus:text-very-dark-cyan"
+                                    type="button"
+                                    id="fiftyPercent"
+                                >
+                                    50%
+                                </button>
+                                <input
+                                    class="placeholder-dark-grayish-cyan text-very-dark-cyan text-right text-xl font-bold outline-none bg-very-light-grayish-cyan rounded-md px-2"
+                                    type="number"
+                                    placeholder="Custom"
+                                    id="customPercent"
+                                />
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 relative">
+                            <div class="md:flex md:justify-between md:relative md:top-3">
+                                <label class="text-sm text-grayish-cyan font-bold" for="people">Number of People</label>
+                                <p id="errorMessage" class="text-rose-700 text-xs" style="display: none">Error</p>
+                            </div>
+
+                            <input
+                                class="bg-very-light-grayish-cyan text-right text-very-dark-cyan font-bold text-xl outline-none p-2 rounded-md"
+                                type="number"
+                                id="peopleCount"
+                                placeholder="0"
+                            />
+                            <img class="absolute top-12 left-3" src="images/icon-person.svg" alt="" />
+                        </div>
+                    </div>
+                    <div
+                        class="bg-very-dark-cyan px-4 pt-6 pb-4 rounded-xl flex flex-col gap-4 md:w-1/2 md:flex md:flex-col md:justify-between"
+                    >
+                        <div class="md:flex md:flex-col md:gap-6">
+                            <div class="flex items-center justify-between md:flex md:items-center">
+                                <div>
+                                    <h1 class="text-white">Tip Amount</h1>
+                                    <h2 class="text-grayish-cyan text-xs font-bold">/ person</h2>
+                                </div>
+                                <p class="text-strong-cyan text-2xl font-bold md:text-4xl">
+                                    $<span id="tipPerson">0.00</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h1 class="text-white">Total</h1>
+                                    <h2 class="text-grayish-cyan text-xs font-bold">/ person</h2>
+                                </div>
+                                <p class="text-strong-cyan text-2xl font-bold md:text-4xl">
+                                    $<span id="totalPerson">0.00</span>
+                                </p>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-strong-cyan w-full text-very-dark-cyan font-bold rounded-md py-2"
+                            type="button"
+                            id="resetBtn"
+                        >
+                            Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <script src="main.js"></script>
+    </body>
+</html>
